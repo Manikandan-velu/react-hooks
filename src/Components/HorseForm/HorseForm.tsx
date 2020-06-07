@@ -13,6 +13,7 @@ import { addHorse, updateHorse } from '../../Services/xhr';
 import { useHistory } from 'react-router-dom';
 import { StoreState } from '../../Redux/Reducers/Reducer';
 import {useParams} from "react-router-dom";
+import { setToaster } from '../../Redux/Actions/Actions';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -96,7 +97,7 @@ const HorseFOrm = ( props: ComponentProps )=> {
 
     const { horseId } = useParams();
 
-    const { selectedHorse } = props;
+    const { selectedHorse, setToaster } = props;
 
     const {handleSubmit, register, errors, formState, getValues } = useForm({
         mode: "onBlur"
@@ -125,6 +126,11 @@ const HorseFOrm = ( props: ComponentProps )=> {
         addHorse(horse)
         .then((data)=> {
             console.log(data)
+            const toast ={
+                type: 'success',
+                message: 'Horse Added succesfully!!'
+            }
+            setToaster(toast)
             history.push('/list');
         })
         .catch(err => console.log(err))
@@ -164,6 +170,11 @@ const HorseFOrm = ( props: ComponentProps )=> {
         updateHorse(horse)
         .then((data)=> {
             console.log(data)
+            const toast ={
+                type: 'success',
+                message: 'Horse Updated succesfully!!'
+            }
+            setToaster(toast)
             history.push('/list');
         })
         .catch((err) => {
@@ -193,7 +204,7 @@ const HorseFOrm = ( props: ComponentProps )=> {
                         />
                     )}                        
                 <div>
-                    <Button type="submit" className="btn-primary mt-4">{horseId ? 'Update' : 'Add'}</Button>
+                    <Button data-test="horseSubmit" type="submit" className="btn-primary mt-4">{horseId ? 'Update' : 'Add'}</Button>
                 </div>
             </form>                  
                 </Grid>            
@@ -204,11 +215,14 @@ const HorseFOrm = ( props: ComponentProps )=> {
 }
 
 interface ComponentProps{
-    selectedHorse: IHorse
+    selectedHorse: IHorse,
+    setToaster: typeof setToaster
 }
 
 const mapStateToProps = (state: StoreState) => ({
     selectedHorse: state.selectedHorse
 })
 
-export default connect(mapStateToProps, null)(HorseFOrm);
+const mapDispatchToProps = {setToaster}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HorseFOrm);

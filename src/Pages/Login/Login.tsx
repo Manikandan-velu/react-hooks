@@ -106,7 +106,7 @@ const Login = ( props: ComponentProps )=> {
     }
 
     return (        
-        <div className="form-container">
+        <div className="form-container" data-testid="login-form">
             <h2>Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                     {loginForm.inputs.map((input: IInput, i) => 
@@ -123,7 +123,7 @@ const Login = ( props: ComponentProps )=> {
                     )}
                 {serverValidation && <p className="mt-2 text-danger">{serverValidation}</p>}                     
                 <div>
-                    <Button id="loginForm" type="submit" variant="primary" className="btn-primary mt-4 mb-2" onClick={() => signIn()}>Login</Button>
+                    <Button data-test="loginForm" id="loginForm" type="submit" variant="primary" className="btn-primary mt-4 mb-2" onClick={() => signIn()}>Login</Button>
                 </div>
                 <Link to='signup'>Don't have account ? Register Now</Link>
             </form>

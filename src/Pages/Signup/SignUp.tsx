@@ -140,7 +140,7 @@ const Signup = ()=> {
     return (
         <div className={classes.root}>
         <Paper className={classes.paper}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography data-testid='title' gutterBottom variant="h5" component="h2">
                     Signup
             </Typography>
             <Grid container spacing={3}>

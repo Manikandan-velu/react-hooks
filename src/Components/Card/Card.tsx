@@ -45,10 +45,10 @@ const CardInfo = (props: ComponentProps)=> {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={()=> editHorse(horse)}>
+                <Button size="small" color="primary" onClick={()=> editHorse(horse)} data-test="editHorse">
                 Edit
                 </Button>
-                <Button size="small" color="primary" onClick={()=> deleteHorse(horse)}>
+                <Button size="small" color="primary" onClick={()=> deleteHorse(horse)} data-test="deleteHorse">
                 Delete
                 </Button>
             </CardActions>

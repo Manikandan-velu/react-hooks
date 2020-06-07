@@ -54,6 +54,7 @@ const Input = (props: ComponentProps)=> {
                                 ...props.validations,
                             })}
                             onChange={props.changed}
+                            data-test={props.elementConfig.name}
                             />
                             <div className="material-input__placeholder">
                             <span>{props.title}</span>
