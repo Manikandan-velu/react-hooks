@@ -27,9 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Navbar = (props: ComponentProps)=> {
-
-  console.log('Navbar', props);
-
   const classes = useStyles();
   const history = useHistory();
 
@@ -38,23 +35,12 @@ const Navbar = (props: ComponentProps)=> {
   },[])
 
   const handleLogout = ()=> {
-    console.log('im logout');
     logout()
     props.setToken(false);
     history.push('/login');
   }
 
-  return (
-    // <Appbar position="static">
-    //     <Toolbar className="nav-container" >
-    //         <Button color="inherit" href="/"> Home </Button>
-    //         <Typography variant="h6" className={classes.title}>              
-    //         </Typography>
-    //         <Button color="inherit" href="/login"> Login </Button>
-    //         <Button color="inherit" href="/signup"> Signup </Button>
-    //         <Button></Button>
-    //     </Toolbar>
-    // </Appbar>
+  return (    
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>          
