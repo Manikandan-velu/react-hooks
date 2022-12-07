@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/SignUp';
-
 import Navbar from './Components/Navbar';
 import Loading from './Components/Loading/Loading';
 import { connect } from 'react-redux';
@@ -28,8 +26,6 @@ function App(props: ComponentProps) {
     props.setToken(useAuth);
   }
 
-
- console.log('APP', isAuth);
   return (
     <div className="App">
         <Router>
