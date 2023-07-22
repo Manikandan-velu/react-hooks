@@ -86,7 +86,7 @@ const Login = ( props: ComponentProps )=> {
                 localStorage.setItem('access_token', result.data.access_token);
                 const toast = {
                     type: 'success',
-                    message: 'Login successfully !!!'
+                    message: 'Login Successfully !!!'
                 }
                 setToaster(toast)
                 setToken(true);
@@ -123,7 +123,7 @@ const Login = ( props: ComponentProps )=> {
                     )}
                 {serverValidation && <p className="mt-2 text-danger">{serverValidation}</p>}                     
                 <div>
-                    <Button data-test="loginForm" id="loginForm" type="submit" variant="primary" className="btn-primary mt-4 mb-2" onClick={() => signIn()}>Login</Button>
+                    <Button data-test="loginForm" id="loginForm" type="submit" variant="primary" className="btn-primary mt-4 mb-2" onClick={() => signIn()}>Login Now</Button>
                 </div>
                 <Link to='signup'>Don't have account ? Register Now</Link>
             </form>
