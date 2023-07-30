@@ -75,10 +75,10 @@ const Home = (props: ComponentProps)=> {
         <Grid container spacing={3}>
             <Grid item xs={12} container  direction="row"  justify="flex-end"  alignItems="center" >
                 <Button variant="contained" color="primary" size="small" href="/add">
-                        Add New
+                        Add New Data
                 </Button>
             </Grid>
-            {horses.map((horse:IHorse, i:any)=>
+            {horses.map((horse:IHorse, i:number)=>
                 <Grid item xs={4}>
                     <CardInfo key={i}
                     horse={horse}
