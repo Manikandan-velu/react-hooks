@@ -11,12 +11,9 @@ import { StoreState } from '../../Redux/Reducers/Reducer';
 import ConfirmModal from '../../Components/ConfirmModal/ConfirmModal';
  
 const Home = (props: ComponentProps)=> {
-
     const [horses, setHorses] = useState<IHorse[]>([]);
     const [isOpen, setIsOpen] = useState(false);
-
     const history = useHistory();
-
     useEffect(() => {
         getHorse();
     }, []);
@@ -31,13 +28,11 @@ const Home = (props: ComponentProps)=> {
         .catch(err => {})
         .finally(() => {props.setLoading(false)});
     }
-
     const editHorse = (horse:IHorse)=> {
         console.log(horse);
         props.setSelectedHorse(horse)
         history.push(`/edit/${horse.id}`);
     }
-
     const handleDeleteHorse = (horse:IHorse)=> {
         setIsOpen(true);
         props.setSelectedHorse(horse)
@@ -45,7 +40,6 @@ const Home = (props: ComponentProps)=> {
         console.log('clicked Delete', isOpen)
 
     }
-
     const handleOpen = () => {
     };
 
@@ -95,14 +89,12 @@ const Home = (props: ComponentProps)=> {
 
     )
 }
-
 interface ComponentProps {
     setSelectedHorse: typeof setSelectedHorse;
     setLoading: typeof setLoading
     confirmTitle: string;
     selectedHorse: IHorse
 }
-
 const mapStateToProps = (state:StoreState)=> ({
     loading: state.loading,
     selectedHorse: state.selectedHorse
