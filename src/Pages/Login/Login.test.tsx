@@ -72,23 +72,6 @@ test("has Horses List loaded", async ()=> {
     await page.screenshot({path:"test-screen/horseSubmitmessage.png", fullPage: true});
 })
 
-// test("Edit Horse working", async ()=> {
-//     page = await browser.newPage();
-//     await page.goto("http://localhost:3000/list");    
-//     const element = await page.$('[data-test="editHorse"]');
-//     await element?.click();
-//     await page.waitFor(1000);
-//     await page.waitForSelector('[data-test="horse_name"]');
-//     await page.click('[data-test="horse_name"]');
-//     await page.keyboard.type('new horse Name');
-//     await page.click('[data-test="owner"]');
-//     await page.keyboard.type('new owner');
-//     await page.screenshot({path:'test-screen/editformfilled.png'});
-//     await page.click('[data-test="horseSubmit"]');
-//     await page.waitFor(1000);
-//     await page.screenshot({path:"test-screen/horseSubmitmessage.png"});
-// })
-
 afterAll(() => {
     browser.close();
   });
